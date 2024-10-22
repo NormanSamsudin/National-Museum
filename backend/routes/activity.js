@@ -44,12 +44,42 @@ activityRouter.post("/api/activity", async (req, res) => {
   }
 });
 
+// activityRouter.get("/api/activity", async (req, res) => {
+//   try {
+//     const activity = await Activity.find({});
+//     return res.status(200).send(activity);
+//   } catch (err) {
+//     res.status(500).json({ error: err.message });
+//   }
+// });
+
+// pagination get request
 activityRouter.get("/api/activity", async (req, res) => {
   try {
-    const activity = await Activity.find({});
-    return res.status(200).send(activity);
+    // Get page and limit from query parameters (defaults to page 1 and 10 items per page)
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+
+    // Calculate the skip value for pagination
+    const skip = (page - 1) * limit;
+
+    // Fetch the activities with pagination
+    const activities = await Activity.find({})
+      .skip(skip) // Skip the appropriate number of items
+      .limit(limit); // Limit the number of results
+
+    // Get the total number of documents
+    const total = await Activity.countDocuments();
+
+    // Return the paginated results with metadata
+    return res.status(200).json({
+      activities,
+      currentPage: page,
+      totalPages: Math.ceil(total / limit),
+      totalItems: total,
+    });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err.message });
   }
 });
 

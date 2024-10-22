@@ -29,4 +29,19 @@ class ActivityController {
       throw Exception('Error load Activity');
     }
   }
+
+ // pagination request
+  static Future<List<ActivityModel>> getActivityList(int page, int pageSize) async {
+    final response = await http.get(Uri.parse('https://your-api-url.com/api/activity?page=$page&limit=$pageSize'));
+    
+    if (response.statusCode == 200) {
+     List<dynamic> data = jsonDecode(response.body);
+        List<ActivityModel> Activitys =
+            data.map((Activity) => ActivityModel.fromJson(Activity)).toList();
+        return Activitys;
+    } else {
+      throw Exception('Failed to load activities');
+    }
+  }
+
 }
