@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const activitySchema = new mongoose.Schema({
-  activityType: {
+  type: {
     type: String,
     enum: ["In-reach programme", "Art Bazaar", "Guided Tour"],
     required: true,
@@ -10,7 +10,7 @@ const activitySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  timestamp: {
+  startDateTime: {
     type: Date,
     required: true,
     default: Date.now,
@@ -20,6 +20,10 @@ const activitySchema = new mongoose.Schema({
     required: true,
   },
   slot: {
+    type: String,
+    required: true,
+  },
+  imgUrl: {
     type: String,
     required: true,
   },
