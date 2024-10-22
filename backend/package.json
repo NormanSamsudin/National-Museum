@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Express.js server",
-  "main": "server.js",
+  "main": "index.js.js",
   "scripts": {
     "start": "nodemon index.js"
   },

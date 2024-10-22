@@ -5,30 +5,31 @@ const activityRouter = express.Router();
 
 activityRouter.post("/api/activity", async (req, res) => {
   try {
-    const { activityType, title, timestamp, location, slot } = req.body;
+    const { type, title, timestamp, location, slot, imgUrl} = req.body;
 
     // Validate required fields
-    if (!activityType || !title || !location || !slot) {
+    if (!type || !title || !location || !slot || !imgUrl) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    // Check if the activityType is valid
-    const validActivityTypes = [
+    // Check if the type is valid
+    const validtypes = [
       "In-reach programme",
       "Art Bazaar",
       "Guided Tour",
     ];
-    if (!validActivityTypes.includes(activityType)) {
+    if (!validtypes.includes(type)) {
       return res.status(400).json({ message: "Invalid activity type" });
     }
 
     // Create a new activity
     const newActivity = new Activity({
-      activityType,
+      type,
       title,
       timestamp: new Date(timestamp),
       location,
       slot,
+      imgUrl,
     });
 
     // Save the new activity to the database
@@ -90,7 +91,7 @@ activityRouter.get("/api/activity", async (req, res) => {
     // Get search, page, and limit from query parameters (default to empty search, page 1, and 10 items per page)
     const search = req.query.search || "";
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
 
     // Calculate the skip value for pagination
     const skip = (page - 1) * limit;
@@ -99,7 +100,7 @@ activityRouter.get("/api/activity", async (req, res) => {
     const searchQuery = {
       $or: [
         { title: { $regex: search, $options: "i" } }, // Search in the title (case-insensitive)
-        { activityType: { $regex: search, $options: "i" } }, // Search in activityType (case-insensitive)
+        { type: { $regex: search, $options: "i" } }, // Search in type (case-insensitive)
         { location: { $regex: search, $options: "i" } }, // Search in location (case-insensitive)
       ],
     };
