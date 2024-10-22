@@ -69,40 +69,18 @@ Once the mobile application is complete, the following materials should be submi
 
 ## Installation
 
-You can ignore this part
-Clone repository via HTTPs
+### Setup local database mongoDB and run Flutter
 
 ```bash
-git clone https://github.com/NormanSamsudin/train-booking-system.git
+ git clone https://github.com/NormanSamsudin/National-Museum.git
+ cd backend
+ npm install
+ npm start
+ cd ..S
+ cd flutter_application
+ flutter pub get
+ flutter run
 ```
-
-You need to install dependencies for the project. Dependencies is install by using a dependencies manager.
-
-```bash
-flutter pub get
-```
-
-### Install Package manager
-
-Node & npm
-
-For installing Node.js and npm, utilize a Node version manager like nvm for managing multiple Node.js versions or use a Node installer if a version manager isn't feasible. To download the LTS version from the Node.js download page for macOS or Windows, and for Linux, consider using the NodeSource installer. For more instructions, refer to this Node and npm [installation guide](https://kinsta.com/blog/how-to-install-node-js/).
-
-### Install MongoDB Database
-
-MongoDB Community Edition on Windows
-
-[installation guide](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/).
-
-## Backend Deployment
-
-To deploy this project on your local machine
-
-```bash
-  npm run start
-```
-
-## Flutter
 
 ### Local IP Address
 
@@ -113,14 +91,6 @@ Change value of ip address on page global_variable.dart. Check your ip address o
   ifconfig //linux
 ```
 
-### Run Flutter
-
-To deploy this flutter projectrun on your local machine
-
-```bash
-  flutter run
-```
-
 ## API Testing
 
 #### Endpoint List
@@ -129,4 +99,16 @@ To deploy this flutter projectrun on your local machine
 
 ```bash
   localhost:3000/api/activity
+```
+
+- POST: Sign In Account
+
+```bash
+  localhost:3000/api/signin
+```
+
+- POST: Sign Up Account
+
+```bash
+  localhost:3000/api/signup
 ```
