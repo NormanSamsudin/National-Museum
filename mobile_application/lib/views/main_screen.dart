@@ -11,6 +11,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 187, 224, 255),
       body: ActivityListView(),
     );
   }
