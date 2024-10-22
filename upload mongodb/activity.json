@@ -1,0 +1,74 @@
+[
+  {
+    "type": "In-reach Programme",
+    "startDateTime": "1676965200",
+    "title": "Si Kijang Money Box",
+    "location": "Sasana Kijang, Bank Negara Malaysia",
+    "slot": "Unlimited Slots",
+    "imgUrl": "https://example.com/image1.jpg"
+  },
+  {
+    "type": "In-reach Programme",
+    "startDateTime": "1677649200",
+    "title": "Talk: 'Get To Know Your Banknotes'",
+    "location": "Sasana Kijang, Bank Negara Malaysia",
+    "slot": "Unlimited Slots",
+    "imgUrl": "https://example.com/image2.jpg"
+  },
+  {
+    "type": "In-reach Programme",
+    "startDateTime": "1677649200",
+    "title": "Talk: How old is the Ringgit?",
+    "location": "Sasana Kijang, Bank Negara Malaysia",
+    "slot": "Unlimited Slots",
+    "imgUrl": "https://example.com/image3.jpg"
+  },
+  {
+    "type": "In-reach Programme",
+    "startDateTime": "1677649200",
+    "title": "Talk: Bank Negara Malaysia – What do we do?",
+    "location": "Sasana Kijang, Bank Negara Malaysia",
+    "slot": "Unlimited Slots",
+    "imgUrl": "https://example.com/image4.jpg"
+  },
+  {
+    "type": "Art Bazaar",
+    "startDateTime": "1688235600",
+    "title": "Summer Art Expo",
+    "location": "Sasana Kijang, Bank Negara Malaysia",
+    "slot": "Limited to 50 people",
+    "imgUrl": "https://example.com/image5.jpg"
+  },
+  {
+    "type": "Guided Tour",
+    "startDateTime": "1693903200",
+    "title": "Heritage Bank Tour",
+    "location": "Bank Negara Museum, Malaysia",
+    "slot": "Limited to 20 people",
+    "imgUrl": "https://example.com/image6.jpg"
+  },
+  {
+    "type": "In-reach Programme",
+    "startDateTime": "1699868400",
+    "title": "Financial Literacy Workshop",
+    "location": "Sasana Kijang, Bank Negara Malaysia",
+    "slot": "Unlimited Slots",
+    "imgUrl": "https://example.com/image7.jpg"
+  },
+  {
+    "type": "Art Bazaar",
+    "startDateTime": "1702446000",
+    "title": "Winter Art Showcase",
+    "location": "Sasana Kijang, Bank Negara Malaysia",
+    "slot": "Limited to 100 people",
+    "imgUrl": "https://example.com/image8.jpg"
+  },
+  {
+    "type": "Guided Tour",
+    "startDateTime": "1703839200",
+    "title": "New Year’s Bank Museum Tour",
+    "location": "Bank Negara Museum, Malaysia",
+    "slot": "Limited to 30 people",
+    "imgUrl": "https://example.com/image9.jpg"
+  }
+]
