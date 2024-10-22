@@ -63,6 +63,70 @@ Once the mobile application is complete, the following materials should be submi
 3. **Video and Screenshots**: Provide a video recording and screenshots of the final product.
 4. **Component List**: Include a list and brief description of any components, technologies, and elements used during development.
 
-## Conclusion
+## Video Demonstration
 
-This project aims to enhance public interaction with the National Museum's events through a mobile application, providing accessibility and convenience to users while helping the museum reach a wider audience. The use of Flutter for the frontend, Node.js for the backend, and MongoDB for the database ensures that the app will be scalable, efficient, and cross-platform.
+[![Video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=WsSFx3DfeQg)
+
+## Installation
+
+You can ignore this part
+Clone repository via HTTPs
+
+```bash
+git clone https://github.com/NormanSamsudin/train-booking-system.git
+```
+
+You need to install dependencies for the project. Dependencies is install by using a dependencies manager.
+
+```bash
+flutter pub get
+```
+
+### Install Package manager
+
+Node & npm
+
+For installing Node.js and npm, utilize a Node version manager like nvm for managing multiple Node.js versions or use a Node installer if a version manager isn't feasible. To download the LTS version from the Node.js download page for macOS or Windows, and for Linux, consider using the NodeSource installer. For more instructions, refer to this Node and npm [installation guide](https://kinsta.com/blog/how-to-install-node-js/).
+
+### Install MongoDB Database
+
+MongoDB Community Edition on Windows
+
+[installation guide](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/).
+
+## Backend Deployment
+
+To deploy this project on your local machine
+
+```bash
+  npm run start
+```
+
+## Flutter
+
+### Local IP Address
+
+Change value of ip address on page global_variable.dart. Check your ip address on bash command.
+
+```bash
+  ipconfig //windows
+  ifconfig //linux
+```
+
+### Run Flutter
+
+To deploy this flutter projectrun on your local machine
+
+```bash
+  flutter run
+```
+
+## API Testing
+
+#### Endpoint List
+
+- GET: Activity List
+
+```bash
+  localhost:3000/api/activity
+```
