@@ -59,8 +59,7 @@ Once the mobile application is complete, the following materials should be submi
  cd backend
  npm install
  npm start
- cd ..S
- cd flutter_application
+ cd mobile_application
  flutter pub get
  flutter run
 ```
