@@ -42,6 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    const SizedBox(height: 90,),
                     Text(
                       'Login Your Account',
                       style: GoogleFonts.getFont(

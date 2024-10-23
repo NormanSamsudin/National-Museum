@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_application/controllers/activity_controller.dart';
+import 'package:mobile_application/controllers/auth_controller.dart';
 import 'package:mobile_application/models/activity.dart';
 import 'package:mobile_application/views/screens/widget/activity_widget.dart';
 
@@ -11,6 +12,7 @@ class ActivityListView extends StatefulWidget {
 class _ActivityListViewState extends State<ActivityListView> {
   static const _pageSize = 5;
   final ScrollController _scrollController = ScrollController();
+  final AuthController _authController = AuthController();
 
   List<ActivityModel> _activities =
       []; // Manually manage the list of activities
@@ -90,10 +92,29 @@ class _ActivityListViewState extends State<ActivityListView> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(
+          height: 51,
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width,
+          child: Row(
+            children: [
+              const Spacer(),
+              InkWell(
+                  onTap: () async {
+                    await _authController.signOutUsers(context: context);
+                  },
+                  child: const Icon(Icons.exit_to_app)),
+              const SizedBox(
+                width: 20,
+              )
+            ],
+          ),
+        ),
         Container(
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 15, top: 120, right: 15, bottom: 0),
+                const EdgeInsets.only(left: 15, top: 45, right: 15, bottom: 0),
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
