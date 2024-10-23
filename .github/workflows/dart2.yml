@@ -1,0 +1,114 @@
+name: Flutter Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: 🎉 Build iOS and Android
+    runs-on: macos-latest
+
+    steps:
+      # 1. Checkout Repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # 2. Debug step to list all files and directories after checkout
+      - name: List repository files
+        run: ls -R
+        working-directory: .
+
+      # 3. Setup Java (needed for Android builds)
+      - name: Set Up Java
+        uses: actions/setup-java@v3.12.0
+        with:
+          distribution: 'oracle'
+          java-version: '17'
+
+      # 4. Setup Flutter
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          architecture: x64
+
+      # 5. Flutter pub get in mobile_application directory
+      - run: flutter pub get
+        working-directory: ./mobile_application
+
+      # 6. Update CocoaPods repo inside iOS directory
+      - run: pod repo update
+        working-directory: ./mobile_application/ios
+
+      # 7. Build Android APK
+      - name: Build Android APK
+        run: flutter build apk --release
+        working-directory: ./mobile_application
+
+      # 8. Build Android App Bundle (AAB)
+      - name: Build Android App Bundle
+        run: flutter build appbundle --release
+        working-directory: ./mobile_application
+
+      # 9. Build iOS app without codesigning
+      - name: Build iOS App
+        run: flutter build ios --release --no-codesign
+        working-directory: ./mobile_application
+
+      # 10. Create Payload directory in the build folder for iOS
+      - run: mkdir Payload
+        working-directory: ./mobile_application/build/ios/iphoneos
+
+      # 11. Move Runner.app into the Payload directory
+      - run: mv Runner.app/ Payload
+        working-directory: ./mobile_application/build/ios/iphoneos
+
+      # 12. Zip the IPA output
+      - name: Zip iOS output
+        run: zip -qq -r -9 FlutterIpaExport.ipa Payload
+        working-directory: ./mobile_application/build/ios/iphoneos
+
+      # 13. Extract version from pubspec.yaml
+      - name: Extract version from pubspec.yaml
+        id: extract_version
+        run: |
+          version=$(grep '^version: ' pubspec.yaml | cut -d ' ' -f 2 | tr -d '\r')
+          echo "VERSION=$version" >> $GITHUB_ENV
+
+      # 14. Check if Tag Exists
+      - name: Check if Tag Exists
+        id: check_tag
+        run: |
+          if git rev-parse "v${{ env.VERSION }}" >/dev/null 2>&1; then
+            echo "TAG_EXISTS=true" >> $GITHUB_ENV
+          else
+            echo "TAG_EXISTS=false" >> $GITHUB_ENV
+
+      # 15. Modify Tag if it Exists
+      - name: Modify Tag
+        if: env.TAG_EXISTS == 'true'
+        id: modify_tag
+        run: |
+          new_version="${{ env.VERSION }}-build-${{ github.run_number }}"
+          echo "VERSION=$new_version" >> $GITHUB_ENV
+
+      # 16. Upload Android APK and AAB to release
+      - name: Upload Android binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: |
+            ./mobile_application/build/app/outputs/flutter-apk/app-release.apk
+            ./mobile_application/build/app/outputs/bundle/release/app-release.aab
+          tag: v${{ env.VERSION }}
+          overwrite: true
+          body: "This is the Android release."
+
+      # 17. Upload iOS IPA to release
+      - name: Upload iOS binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ./mobile_application/build/ios/iphoneos/FlutterIpaExport.ipa
+          tag: v${{ env.VERSION }}
+          overwrite: true
+          body: "This is the iOS release."
