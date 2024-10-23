@@ -48,7 +48,7 @@ Once the mobile application is complete, the following materials should be submi
 
 ## Video Demonstration
 
-[![Video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=WsSFx3DfeQg)
+[![App Demo](https://img.youtube.com/vi/CA4npv_mOc8/0.jpg)](https://www.youtube.com/watch?v=CA4npv_mOc8)
 
 ## Installation
 
