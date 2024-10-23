@@ -12,6 +12,8 @@ const DB =
 
 app.use(express.json({ limit: "10kb" }));
 
+app.use("/public", express.static("public"));
+
 //middleware to register route
 app.use(authRouter);
 app.use(activityRouter);
