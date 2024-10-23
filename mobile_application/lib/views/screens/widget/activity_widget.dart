@@ -23,8 +23,10 @@ class ActivityWidget extends StatelessWidget {
               ),
               Container(
                 height: 100,
+                width: 100,
                 child: Image.network(
-                  "https://i.pinimg.com/originals/87/47/9f/87479f8c4844125a31881f47ce28f70a.png",
+                  fit: BoxFit.fill,
+                  activity.imgUrl,
                 ),
               ),
               SizedBox(
@@ -36,25 +38,15 @@ class ActivityWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Spacer(),
-                    // Container(
-                    //     decoration: BoxDecoration(
-                    //         borderRadius: BorderRadius.circular(10),
-                    //         color: Colors.purple),
-                    //     child: Padding(
-                    //       padding: const EdgeInsets.only(
-                    //           left: 3, right: 3, top: 1, bottom: 1),
-                    //       child: Text(
-                    //         activity.type,
-                    //         style: GoogleFonts.lato(color: Colors.white),
-                    //       ),
-                    //     )),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: _getActivityColor(activity.type), // Use a function to set color based on type
+                        color: _getActivityColor(activity
+                            .type), // Use a function to set color based on type
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 3, right: 3, top: 1, bottom: 1),
+                        padding: const EdgeInsets.only(
+                            left: 3, right: 3, top: 1, bottom: 1),
                         child: Text(
                           activity.type,
                           style: GoogleFonts.lato(color: Colors.white),
@@ -87,30 +79,18 @@ class ActivityWidget extends StatelessWidget {
               ),
             ],
           )
-          // ListTile(
-          //   leading: Container(
-          //       height: 120,
-          //       child: Image.network(
-          //         "https://i.pinimg.com/originals/87/47/9f/87479f8c4844125a31881f47ce28f70a.png",
-          //       )),
-          //   subtitle: Text('${activity.type} - ${activity.location}'),
-          //   trailing: Text(activity.slot),
-          // ),
           ),
     );
   }
 
   Color _getActivityColor(String type) {
-  switch (type) {
-    case 'In-reach programme':
-      return Colors.purple; 
-    case 'Art Bazaar':
-      return Colors.green; 
-    case 'Guided Tour':
-      return Colors.blue;
-    default:
-      return Colors.grey; 
+    switch (type) {
+      case 'Art Bazaar':
+        return Colors.green;
+      case 'Guided Tour':
+        return Colors.blue;
+      default:
+        return Colors.purple;
+    }
   }
-}
-
 }
