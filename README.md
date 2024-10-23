@@ -26,23 +26,6 @@ The following technologies will be used for the development of the mobile applic
 - **Backend**: Node.js will serve as the backend API. It will handle all the requests from the mobile app, including retrieving event data, implementing search functionality, and managing pagination.
 - **Database**: MongoDB will be used as the database to store all event and activity data. Its document-based structure makes it flexible for handling varying event types and participant data.
 
-## Widgets Used in Flutter Application
-
-To build an interactive and user-friendly mobile application, the following Flutter widgets are suitable:
-
-- **`ListView.builder`**: This widget is ideal for displaying a scrollable list of events. It efficiently loads items lazily as the user scrolls, making it perfect for implementing infinite scroll with pagination.
-- **`TextField`**: A `TextField` widget will be used for the search bar, allowing users to enter keywords to filter events. You can also integrate this with debouncing techniques to optimize performance during searches.
-
-- **`FutureBuilder`**: This widget is great for making asynchronous requests to the backend API and displaying events when the data is retrieved. It simplifies handling loading states (such as showing a `CircularProgressIndicator` while waiting for the event data).
-
-- **`GridView`**: If events are categorized and you want to display them in a visually organized way, `GridView` allows for a structured grid layout. This might be useful if you want to display different categories of events side by side.
-
-- **`Pagination Controls (Custom Buttons)`**: You can create custom pagination controls using `ElevatedButton` or `IconButton`. These buttons will allow the user to navigate between pages of events, providing a better user experience for long lists.
-
-- **`BottomNavigationBar`**: If you plan to include multiple sections within the app (such as "Events", "Categories", "Favorites"), a `BottomNavigationBar` can help users navigate between different parts of the app seamlessly.
-
-- **`SliverList`** and **`SliverAppBar`**: If you want to enhance the scrolling experience further, you can combine `SliverList` and `SliverAppBar` to create a sophisticated scrolling effect, which allows the app bar to collapse or expand as users scroll through the list of events.
-
 ## Technical Requirements
 
 - **Infinite Scroll and Pagination**: Support infinite scrolling with pagination to handle the large number of events throughout the year efficiently.
@@ -98,7 +81,7 @@ Change value of ip address on page global_variable.dart. Check your ip address o
 - GET: Activity List
 
 ```bash
-  localhost:3000/api/activity
+  localhost:3000/api/activity?page=page&limit=limit&search=search
 ```
 
 - POST: Sign In Account
@@ -112,3 +95,81 @@ Change value of ip address on page global_variable.dart. Check your ip address o
 ```bash
   localhost:3000/api/signup
 ```
+
+## Widget Overview for Flutter
+
+### Key Widgets
+
+#### 1. **`PagedListView`**
+
+Enables infinite scrolling and pagination, loading data page by page. It handles fetching new pages when the user scrolls close to the bottom.
+
+#### 2. **`PagingController`**
+
+Manages pagination logic by fetching and controlling the flow of data for the `PagedListView`.
+
+#### 3. **`RefreshIndicator`**
+
+Adds pull-to-refresh functionality, allowing users to refresh the list of activities by pulling down from the top.
+
+#### 4. **`TextField`**
+
+Provides a search bar for filtering activities based on user input. It updates the query dynamically when text changes.
+
+#### 5. **`Stack`**
+
+Used to layer widgets, allowing the placement of a background image (`Image.asset`) on top of the `Container`.
+
+#### 6. **`Container`**
+
+A rectangular visual element that serves as the background and layout structure for other widgets. It can hold images, colors, and child widgets.
+
+#### 7. **`Positioned`**
+
+Allows precise control over where a widget (like the background image) is placed within a `Stack`.
+
+#### 8. **`Image.asset`**
+
+Displays a small background image at the top of the `Container`, without covering the entire area.
+
+#### 9. **`Scaffold`**
+
+Provides the basic structure for the screen, including the background color and a scrollable body using `SingleChildScrollView`.
+
+#### 10. **`Form`**
+
+Wraps the input fields and validates user input, using a `GlobalKey` for managing the form state.
+
+#### 11. **`TextFormField`**
+
+Used for the email and password input fields, with validation logic to ensure correct formats (e.g., valid email, password length).
+
+#### 12. **`TextEditingController`**
+
+Captures the user input from the text fields for further processing, such as login credentials.
+
+#### 13. **`InkWell`**
+
+Makes the sign-in button tappable, and handles form submission when pressed. It also displays a loading indicator when the login process is in progress.
+
+#### 14. **`Image.asset`**
+
+Loads and displays images like an illustration and icons for email and password fields.
+
+#### 15. **`GoogleFonts`**
+
+Utilizes custom fonts (e.g., `Lato`, `Nunito Sans`, and `Roboto`) to style the text elements across the screen.
+
+#### 16. **`LinearGradient`**
+
+Adds a gradient background to the "Sign in" button, giving it a visually appealing effect.
+
+#### 17. **`Navigator.push`**
+
+Navigates to the registration screen when the user taps on "Sign up."
+
+### Additional Features
+
+- **Form Validation:** The login form ensures that the email and password follow proper formats before allowing submission.
+- **Loading State:** Displays a `CircularProgressIndicator` while the login process is ongoing.
+- **Custom Design:** Uses padding, colors, and rounded borders to create a clean and modern UI.
