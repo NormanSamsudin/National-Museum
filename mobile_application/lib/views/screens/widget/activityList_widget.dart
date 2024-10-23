@@ -69,11 +69,11 @@ class _ActivityListViewState extends State<ActivityListView> {
     return Column(
       children: [
         Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: Colors.yellow,
-            borderRadius: BorderRadius.circular(10.0), // Rounded corners
-          ),
+          // width: double.infinity,
+          // decoration: BoxDecoration(
+          //   color: Colors.yellow,
+          //   borderRadius: BorderRadius.circular(10.0), // Rounded corners
+          // ),
           child: Padding(
             padding: const EdgeInsets.only(
                 left: 15, top: 120, right: 15, bottom: 30),
@@ -98,43 +98,94 @@ class _ActivityListViewState extends State<ActivityListView> {
             ),
           ),
         ),
+
         Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/ets.jpeg"),
-                fit: BoxFit.cover, // Optional
-              ),
-            ),
-            alignment: Alignment.topCenter,
-            child: RefreshIndicator(
-              onRefresh: _onRefresh, // Pull to refresh implementation
-              child: PagedListView<int, ActivityModel>(
-                pagingController: _pagingController,
-                builderDelegate: PagedChildBuilderDelegate<ActivityModel>(
-                  itemBuilder: (context, item, index) => ActivityWidget(
-                    activity: item,
-                  ),
-                  noItemsFoundIndicatorBuilder: (context) => Center(
-                    child: Text(
-                      'No data available',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                  newPageProgressIndicatorBuilder: (context) => Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                  newPageErrorIndicatorBuilder: (context) => Center(
-                    child: Text(
-                      'Error loading more items',
-                      style: TextStyle(fontSize: 18),
+          child: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 160, 202, 253), // Blue bgColor: rgb(160,202,253)
+                ),
+                alignment: Alignment.topCenter,
+                child: RefreshIndicator(
+                  onRefresh: _onRefresh, // Pull to refresh implementation
+                  child: PagedListView<int, ActivityModel>(
+                    pagingController: _pagingController,
+                    builderDelegate: PagedChildBuilderDelegate<ActivityModel>(
+                      itemBuilder: (context, item, index) => ActivityWidget(
+                        activity: item,
+                      ),
+                      noItemsFoundIndicatorBuilder: (context) => Center(
+                        child: Text(
+                          'No data available',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
+                      newPageProgressIndicatorBuilder: (context) => Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                      newPageErrorIndicatorBuilder: (context) => Center(
+                        child: Text(
+                          'Error loading more items',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: Image.asset(
+                  'assets/images/element_curve_blue.png',
+                  height: 100, // Set the height of the image
+                  fit: BoxFit.contain, // Ensure the image does not cover the whole container
+                ),
+              ),
+            ],
           ),
         ),
+
+        // Expanded(
+        //   child: Container(
+        //     decoration: BoxDecoration(
+        //       color: Colors.fromARGB(255, 160, 202, 253), //Blue bgColor: rgb(160,202,253)
+        //       // image: DecorationImage(
+        //       //   image: AssetImage("assets/images/ets.jpeg"),
+        //       //   fit: BoxFit.cover, // Optional
+        //       // ),
+        //     ),
+        //     alignment: Alignment.topCenter,
+        //     child: RefreshIndicator(
+        //       onRefresh: _onRefresh, // Pull to refresh implementation
+        //       child: PagedListView<int, ActivityModel>(
+        //         pagingController: _pagingController,
+        //         builderDelegate: PagedChildBuilderDelegate<ActivityModel>(
+        //           itemBuilder: (context, item, index) => ActivityWidget(
+        //             activity: item,
+        //           ),
+        //           noItemsFoundIndicatorBuilder: (context) => Center(
+        //             child: Text(
+        //               'No data available',
+        //               style: TextStyle(fontSize: 18),
+        //             ),
+        //           ),
+        //           newPageProgressIndicatorBuilder: (context) => Center(
+        //             child: CircularProgressIndicator(),
+        //           ),
+        //           newPageErrorIndicatorBuilder: (context) => Center(
+        //             child: Text(
+        //               'Error loading more items',
+        //               style: TextStyle(fontSize: 18),
+        //             ),
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }
