@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_application/models/activity.dart';
+import 'package:intl/intl.dart';
 
 class ActivityWidget extends StatelessWidget {
   final ActivityModel activity;
@@ -9,6 +10,10 @@ class ActivityWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+  DateTime date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
+  String formattedDate = DateFormat('EEE, d MMM yyyy, h:mm a').format(date);
+
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
       child: Container(
@@ -42,7 +47,7 @@ class ActivityWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: _getActivityColor(activity
-                            .type), // Use a function to set color based on type
+                            .type), 
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(
@@ -53,23 +58,44 @@ class ActivityWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Text(activity.startDateTime),
+                    Text(formattedDate, color: Colors.grey),
                     Flexible(
                         child: Text(
                       activity.title,
                       style: GoogleFonts.lato(
                         fontSize: 14,
+                        fontWeight: FontWeight.bold,
                       ),
                     )),
                     Expanded(
-                      child: Text(
-                        activity.location,
-                        style: GoogleFonts.lato(
-                          fontSize: 14,
+                      child: 
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            WidgetSpan(
+                              child: Icon(Icons.location, color: Colors.grey),
+                            ),
+                            TextSpan(
+                              text: activity.location,
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
                         ),
-                      ),
+                      )
                     ),
-                    Text(activity.slot),
+                    RichText(
+                        text: TextSpan(
+                          children: [
+                            WidgetSpan(
+                              child: Icon(Icons.person, color: Colors.grey),
+                            ),
+                            TextSpan(
+                              text: activity.slot,
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                      )
                     Spacer()
                   ],
                 ),
