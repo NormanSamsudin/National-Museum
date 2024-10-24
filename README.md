@@ -1,4 +1,4 @@
-# National Museum Event Mobile Application
+# National Museum Event Mobile Application (UI already Updated)
 
 ## Project Overview
 
