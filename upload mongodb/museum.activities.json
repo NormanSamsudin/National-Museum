@@ -1,0 +1,143 @@
+[{
+  "_id": {
+    "$oid": "67179bb65f2370aa264d70bd"
+  },
+  "type": "In-reach Programme",
+  "startDateTime": {
+    "$date": "2024-09-10T14:30:00.000Z"
+  },
+  "title": "Si Kijang Money Box",
+  "location": "Sasana Kijang, Bank Negara Malaysia",
+  "slot": "Unlimited",
+  "imgUrl": "http://192.168.0.11:3000/public/img/kijang.jpg"
+},
+{
+  "_id": {
+    "$oid": "67179bb65f2370aa264d70be"
+  },
+  "type": "In-reach Programme",
+  "startDateTime": {
+    "$date": "2024-09-10T14:30:00.000Z"
+  },
+  "title": "Talk: 'Get To Know Your Banknotes'",
+  "location": "Sasana Kijang, Bank Negara Malaysia",
+  "slot": "Unlimited",
+  "imgUrl": "http://192.168.0.11:3000/public/img/kijang emas.jpg"
+},
+{
+  "_id": {
+    "$oid": "67179bb65f2370aa264d70bf"
+  },
+  "type": "In-reach Programme",
+  "startDateTime": {
+    "$date": "2024-09-10T14:30:00.000Z"
+  },
+  "title": "Talk: How old is the Ringgit?",
+  "location": "Sasana Kijang, Bank Negara Malaysia",
+  "slot": "Unlimited",
+  "imgUrl": "http://192.168.0.11:3000/public/img/duit.jpg"
+},
+{
+  "_id": {
+    "$oid": "67179bb65f2370aa264d70c0"
+  },
+  "type": "In-reach Programme",
+  "startDateTime": {
+    "$date": "2024-09-10T14:30:00.000Z"
+  },
+  "title": "Talk: Bank Negara Malaysia – What do we do?",
+  "location": "Sasana Kijang, Bank Negara Malaysia",
+  "slot": "Unlimited",
+  "imgUrl": "http://192.168.0.11:3000/public/img/kijang.jpg"
+},
+{
+  "_id": {
+    "$oid": "67179bb65f2370aa264d70c1"
+  },
+  "type": "Art Bazaar",
+  "startDateTime": {
+    "$date": "2024-09-10T14:30:00.000Z"
+  },
+  "title": "Summer Art Expo",
+  "location": "Sasana Kijang, Bank Negara Malaysia",
+  "slot": "Unlimited",
+  "imgUrl": "http://192.168.0.11:3000/public/img/art.jpg"
+},
+{
+  "_id": {
+    "$oid": "67179bb65f2370aa264d70c2"
+  },
+  "type": "Guided Tour",
+  "startDateTime": {
+    "$date": "2024-09-10T14:30:00.000Z"
+  },
+  "title": "Heritage Bank Tour",
+  "location": "Bank Negara Museum, Malaysia",
+  "slot": "20 people",
+  "imgUrl": "http://192.168.0.11:3000/public/img/heritage.png"
+},
+{
+  "_id": {
+    "$oid": "67179bb65f2370aa264d70c3"
+  },
+  "type": "In-reach Programme",
+  "startDateTime": {
+    "$date": "2024-09-10T14:30:00.000Z"
+  },
+  "title": "Financial Literacy Workshop",
+  "location": "Sasana Kijang, Bank Negara Malaysia",
+  "slot": "Unlimited",
+  "imgUrl": "http://192.168.0.11:3000/public/img/workshop.jpg"
+},
+{
+  "_id": {
+    "$oid": "67179bb65f2370aa264d70c4"
+  },
+  "type": "Art Bazaar",
+  "startDateTime": {
+    "$date": "2024-09-10T14:30:00.000Z"
+  },
+  "title": "Winter Art Showcase",
+  "location": "Sasana Kijang, Bank Negara Malaysia",
+  "slot": "Unlimited",
+  "imgUrl": "http://192.168.0.11:3000/public/img/art.jpg"
+},
+{
+  "_id": {
+    "$oid": "67179bb65f2370aa264d70c5"
+  },
+  "type": "Guided Tour",
+  "startDateTime": {
+    "$date": "2024-09-10T14:30:00.000Z"
+  },
+  "title": "New Year’s Bank Museum Tour",
+  "location": "Bank Negara Museum, Malaysia",
+  "slot": "30 people",
+  "imgUrl": "http://192.168.0.11:3000/public/img/year.png"
+},
+{
+  "_id": {
+    "$oid": "6717a40a5f2370aa264d70c6"
+  },
+  "type": "In-reach Programme",
+  "startDateTime": {
+    "$date": "2024-09-10T14:30:00.000Z"
+  },
+  "title": "Si Kijang Money Box",
+  "location": "Sasana Kijang, Bank Negara Malaysia",
+  "slot": "Unlimited",
+  "imgUrl": "http://192.168.0.11:3000/public/img/kijang.jpg"
+},
+{
+  "_id": {
+    "$oid": "6717a40a5f2370aa264d70c7"
+  },
+  "type": "In-reach Programme",
+  "startDateTime": {
+    "$date": "2024-09-10T14:30:00.000Z"
+  },
+  "title": "Talk: 'Get To Know Your Banknotes'",
+  "location": "Sasana Kijang, Bank Negara Malaysia",
+  "slot": "Unlimited",
+  "imgUrl": "http://192.168.0.11:3000/public/img/duit.jpg"
+}]
